@@ -26,12 +26,12 @@ const Main = (props: IMainProps) => (
           <Navbar>
             <li className="mr-6">
               <Link href="/">
-                <a>Home</a>
+                <a>Productos</a>
               </Link>
             </li>
             <li className="mr-6">
-              <Link href="/about/">
-                <a>About</a>
+              <Link href="/carrito/">
+                <a>Carrito</a>
               </Link>
             </li>
           </Navbar>

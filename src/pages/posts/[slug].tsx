@@ -16,9 +16,7 @@ type IPostUrl = {
 type IPostProps = {
   title: string;
   description: string;
-  date: string;
-  modified_date: string;
-  image: string;
+  category: string;
   content: string;
 };
 
@@ -28,21 +26,13 @@ const DisplayPost = (props: IPostProps) => (
       <Meta
         title={props.title}
         description={props.description}
-        post={{
-          image: props.image,
-          date: props.date,
-          modified_date: props.modified_date,
-        }}
+        category={props.category}
       />
     }
   >
     <h1 className="text-center font-bold text-3xl text-gray-900">
       {props.title}
     </h1>
-    <div className="text-center text-sm mb-8">
-      {format(new Date(props.date), 'LLLL d, yyyy')}
-    </div>
-
     <Content>
       <div
         // eslint-disable-next-line react/no-danger

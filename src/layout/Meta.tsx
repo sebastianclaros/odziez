@@ -9,12 +9,8 @@ import { addTrailingSlash } from '../utils/Url';
 type IMetaProps = {
   title: string;
   description: string;
+  category?: string;
   canonical?: string;
-  post?: {
-    image: string;
-    date: string;
-    modified_date: string;
-  };
 };
 
 const Meta = (props: IMetaProps) => {
