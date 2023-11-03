@@ -1,6 +1,4 @@
 import React from 'react';
-
-import { format } from 'date-fns';
 import Link from 'next/link';
 
 import { Pagination, IPaginationProps } from '../pagination/Pagination';

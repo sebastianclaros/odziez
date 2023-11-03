@@ -1,6 +1,4 @@
 import React from 'react';
-
-import { format } from 'date-fns';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { Content } from '../../content/Content';
@@ -61,9 +59,7 @@ export const getStaticProps: GetStaticProps<IPostProps, IPostUrl> = async ({
   const post = getPostBySlug(params!.slug, [
     'title',
     'description',
-    'date',
-    'modified_date',
-    'image',
+    'category',
     'content',
     'slug',
   ]);
@@ -73,9 +69,7 @@ export const getStaticProps: GetStaticProps<IPostProps, IPostUrl> = async ({
     props: {
       title: post.title,
       description: post.description,
-      date: post.date,
-      modified_date: post.modified_date,
-      image: post.image,
+      category: post.category,
       content,
     },
   };

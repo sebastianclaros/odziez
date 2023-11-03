@@ -79,28 +79,13 @@ const Meta = (props: IMetaProps) => {
           content={AppConfig.site_name}
           key="og:site_name"
         />
-        {props.post && (
+        {props && (
           <>
             <meta property="og:type" content="article" key="og:type" />
-            <meta
-              property="og:image"
-              content={`${AppConfig.url}${router.basePath}${props.post.image}`}
-              key="og:image"
-            />
             <meta
               name="twitter:card"
               content="summary_large_image"
               key="twitter:card"
-            />
-            <meta
-              property="article:published_time"
-              content={new Date(props.post.date).toISOString()}
-              key="article:published_time"
-            />
-            <meta
-              property="article:modified_time"
-              content={new Date(props.post.modified_date).toISOString()}
-              key="article:modified_time"
             />
             <script
               type="application/ld+json"
@@ -111,30 +96,7 @@ const Meta = (props: IMetaProps) => {
             "description": "${
               props.description ? props.description : AppConfig.description
             }",
-            "author": {
-              "@type": "Person",
-              "name": "${AppConfig.author}"
-            },
-            "@type": "BlogPosting",
-            "url": "${AppConfig.url}${router.basePath}${addTrailingSlash(
-                  router.asPath
-                )}",
-            "publisher": {
-              "@type": "Organization",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "${AppConfig.url}${
-                  router.basePath
-                }/assets/images/logo.png"
-              },
-              "name": "${AppConfig.author}"
-            },
             "headline": "${props.title} | ${AppConfig.site_name}",
-            "image": ["${AppConfig.url}${router.basePath}${props.post.image}"],
-            "datePublished": "${new Date(props.post.date).toISOString()}",
-            "dateModified": "${new Date(
-              props.post.modified_date
-            ).toISOString()}",
             "mainEntityOfPage": {
               "@type": "WebPage",
               "@id": "${AppConfig.url}${router.basePath}${addTrailingSlash(
