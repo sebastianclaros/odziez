@@ -4,7 +4,7 @@ import { IProductProps } from '../pages/products/[slug]';
 import {ProductCard} from './ProductCard';
 
 export type IProductGalleryProps = {
-  category: string;
+  category?: string;
   products: IProductProps[];
   pagination: IPaginationProps;
 };
