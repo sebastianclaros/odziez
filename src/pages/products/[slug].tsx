@@ -4,26 +4,20 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { Content } from '../../content/Content';
 import { Meta } from '../../layout/Meta';
 import { Main } from '../../templates/Main';
-import { getAllProducts, getProductBySlug } from '../../utils/Content';
+import { IProductProps, getAllProducts, getProductBySlug } from '../../utils/Content';
 import { markdownToHtml } from '../../utils/Markdown';
 
 type IProductUrl = {
   slug: string;
 };
 
-type IProductProps = {
-  title: string;
-  description: string;
-  category: string;
-  content: string;
-};
 
 const DisplayProduct = (props: IProductProps) => (
   <Main
     meta={
       <Meta
         title={props.title}
-        description={props.description}
+        description={props.description || props.title }
         category={props.category}
       />
     }
@@ -34,7 +28,7 @@ const DisplayProduct = (props: IProductProps) => (
     <Content>
       <div
         // eslint-disable-next-line react/no-danger
-        // dangerouslySetInnerHTML={{ __html: props.content }}
+        dangerouslySetInnerHTML={{ __html: props.content }}
       />
     </Content>
   </Main>
@@ -60,6 +54,8 @@ export const getStaticProps: GetStaticProps<IProductProps, IProductUrl> = async 
     'title',
     'description',
     'category',
+    'precio',
+    'image',
     'content',
     'slug',
   ]);
