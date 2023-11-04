@@ -1,15 +1,15 @@
 import React from 'react';
-// import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { Content } from '../../content/Content';
 import { Meta } from '../../layout/Meta';
 import { Main } from '../../templates/Main';
-// import { getAllProducts, getProductBySlug } from '../../utils/Content';
-// import { markdownToHtml } from '../../utils/Markdown';
+import { getAllProducts, getProductBySlug } from '../../utils/Content';
+import { markdownToHtml } from '../../utils/Markdown';
 
-// type IProductUrl = {
-//   slug: string;
-// };
+type IProductUrl = {
+  slug: string;
+};
 
 type IProductProps = {
   title: string;
@@ -40,39 +40,39 @@ const DisplayProduct = (props: IProductProps) => (
   </Main>
 );
 
-// export const getStaticPaths: GetStaticPaths<IProductUrl> = async () => {
-//   const products = getAllProducts(['slug']);
+export const getStaticPaths: GetStaticPaths<IProductUrl> = async () => {
+  const products = getAllProducts(['slug']);
 
-//   return {
-//     paths: products.map((product) => ({
-//       params: {
-//         slug: product.slug,
-//       },
-//     })),
-//     fallback: false,
-//   };
-// };
+  return {
+    paths: products.map((product) => ({
+      params: {
+        slug: product.slug,
+      },
+    })),
+    fallback: false,
+  };
+};
 
-// export const getStaticProps: GetStaticProps<IProductProps, IProductUrl> = async ({
-//   params,
-// }) => {
-//   const product = getProductBySlug(params!.slug, [
-//     'title',
-//     'description',
-//     'category',
-//     'content',
-//     'slug',
-//   ]);
-//   const content = await markdownToHtml(product.content || '');
+export const getStaticProps: GetStaticProps<IProductProps, IProductUrl> = async ({
+  params,
+}) => {
+  const product = getProductBySlug(params!.slug, [
+    'title',
+    'description',
+    'category',
+    'content',
+    'slug',
+  ]);
+  const content = await markdownToHtml(product.content || '');
 
-//   return {
-//     props: {
-//       title: product.title,
-//       description: product.description,
-//       category: product.category,
-//       content,
-//     },
-//   };
-// };
+  return {
+    props: {
+      title: product.title,
+      description: product.description,
+      category: product.category,
+      content,
+    },
+  };
+};
 
 export default DisplayProduct;

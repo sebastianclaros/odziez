@@ -2,7 +2,7 @@ import React from 'react';
 
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { BlogGallery, IBlogGalleryProps } from '../blog/BlogGallery';
+import { ProductGallery, IProductGalleryProps } from '../blog/ProductGallery';
 import { Meta } from '../layout/Meta';
 import { IPaginationProps } from '../pagination/Pagination';
 import { Main } from '../templates/Main';
@@ -14,9 +14,9 @@ type IPageUrl = {
   page: string;
 };
 
-const PaginateProducts = (props: IBlogGalleryProps) => (
+const PaginateProducts = (props: IProductGalleryProps) => (
   <Main meta={<Meta title="Lorem ipsum" description="Lorem ipsum" />}>
-    <BlogGallery products={props.products} pagination={props.pagination} />
+    <ProductGallery products={props.products} pagination={props.pagination} />
   </Main>
 );
 
@@ -40,7 +40,7 @@ export const getStaticPaths: GetStaticPaths<IPageUrl> = async () => {
 };
 
 export const getStaticProps: GetStaticProps<
-  IBlogGalleryProps,
+  IProductGalleryProps,
   IPageUrl
 > = async ({ params }) => {
   const products = getAllProducts(['title', 'category', 'slug']);

@@ -2,14 +2,14 @@ import React from 'react';
 
 import { GetStaticProps } from 'next';
 
-import { BlogGallery, IBlogGalleryProps } from '../blog/BlogGallery';
+import { ProductGallery, IProductGalleryProps } from '../product/ProductGallery';
 import { Meta } from '../layout/Meta';
 import { IPaginationProps } from '../pagination/Pagination';
 import { Main } from '../templates/Main';
 import { AppConfig } from '../utils/AppConfig';
 import { getAllProducts } from '../utils/Content';
 
-const Index = (props: IBlogGalleryProps) => (
+const Index = (props: IProductGalleryProps) => (
   <Main
     meta={
       <Meta
@@ -18,11 +18,11 @@ const Index = (props: IBlogGalleryProps) => (
       />
     }
   >
-    <BlogGallery products={props.products} pagination={props.pagination} />
+    <ProductGallery products={props.products} pagination={props.pagination} />
   </Main>
 );
 
-export const getStaticProps: GetStaticProps<IBlogGalleryProps> = async () => {
+export const getStaticProps: GetStaticProps<IProductGalleryProps> = async () => {
   const products = getAllProducts(['title', 'date', 'slug']);
   const pagination: IPaginationProps = {};
 

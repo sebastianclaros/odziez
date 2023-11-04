@@ -4,16 +4,16 @@ import Link from 'next/link';
 import { Pagination, IPaginationProps } from '../pagination/Pagination';
 import { ProductItems } from '../utils/Content';
 
-export type IBlogGalleryProps = {
+export type IProductGalleryProps = {
   products: ProductItems[];
   pagination: IPaginationProps;
 };
-const BlogGallery = (props: IBlogGalleryProps) => (
+const ProductGallery = (props: IProductGalleryProps) => (
   <>
     <ul>
       {props.products.map((elt) => (
         <li key={elt.slug} className="mb-3 flex justify-between">
-          <Link href="/productos/[slug]" as={`/productos/${elt.slug}`}>
+          <Link href="/products/[slug]" as={`/products/${elt.slug}`}>
             <a>
               <h2>{elt.title}</h2>
             </a>
@@ -30,4 +30,4 @@ const BlogGallery = (props: IBlogGalleryProps) => (
   </>
 );
 
-export { BlogGallery };
+export { ProductGallery };
