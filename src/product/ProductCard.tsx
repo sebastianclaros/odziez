@@ -18,7 +18,7 @@ const ProductCard = (props: IProductCard) =>  (
             title={props.product.title}
         />
         {props.product.description &&
-            <CardContent >
+            <CardContent className='no-decoration'>
               <Typography gutterBottom variant="h5" component="div">
               {props.product.title}
               </Typography>

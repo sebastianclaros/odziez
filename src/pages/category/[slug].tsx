@@ -26,7 +26,7 @@ const DisplayCategory = (props: ICategoryProps) => (
     }
   >
     <h1 className="text-center font-bold text-3xl text-gray-900">
-      {props.category}
+      {props.category.toLocaleUpperCase()}
     </h1>
     <Content>
       <ProductSection  products={props.products}/>
