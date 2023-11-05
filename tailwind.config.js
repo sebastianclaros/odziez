@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['./src/**/*.{js,ts,jsx,tsx}', './_posts/**/*.md'],
+  content: ['./src/**/*.{js,ts,jsx,tsx}', './products/**/*.md'],
   theme: {
     fontSize: {
       xs: '0.75rem',
@@ -14,6 +14,9 @@ module.exports = {
       '6xl': '4rem',
     },
     extend: {
+      gridTemplateRows: {
+        '[auto,auto,1fr]': 'auto auto 1fr',
+      },
       colors: {
         gray: {
           100: '#f7fafc',
@@ -40,5 +43,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+  ],
 };

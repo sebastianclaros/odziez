@@ -2,13 +2,18 @@ import React from 'react';
 
 import { GetStaticProps } from 'next';
 
-import { ProductSection, IProductGalleryProps } from '../product/ProductSection';
+import { ProductSection } from '../product/ProductSection';
 import { Meta } from '../layout/Meta';
 import { Main } from '../templates/Main';
 import { AppConfig } from '../utils/AppConfig';
-import { getProductsByTag } from '../utils/Content';
+import { ProductGenericProps, getProductsByTag } from '../utils/Content';
 
-const Index = (props: IProductGalleryProps) => (
+type IHomeProps = {
+  home: ProductGenericProps[];
+  featured: ProductGenericProps[];
+}
+
+const Index = (props: IHomeProps) => (
   <Main
     meta={
       <Meta
@@ -22,12 +27,12 @@ const Index = (props: IProductGalleryProps) => (
   </Main>
 );
 
-export const getStaticProps: GetStaticProps<IProductGalleryProps> = async () => {
+export const getStaticProps: GetStaticProps<IHomeProps> = async () => {
 
   return {
     props: {
-      home: getProductsByTag('home', ['title', 'image', 'slug']),
-      featured: getProductsByTag('featured', ['title', 'image', 'slug']),
+      home: getProductsByTag('home', ['name', 'image', 'href', 'slug']),
+      featured: getProductsByTag('featured', ['name', 'image', 'href', 'slug']),
     },
   };
 };

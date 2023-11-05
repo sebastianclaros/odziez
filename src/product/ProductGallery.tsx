@@ -1,11 +1,11 @@
 import React from 'react';
 import { Pagination, IPaginationProps } from '../pagination/Pagination';
-import { IProductProps } from '../pages/products/[slug]';
 import {ProductCard} from './ProductCard';
+import { ProductGenericProps } from '../utils/Content';
 
 export type IProductGalleryProps = {
   category?: string;
-  products: IProductProps[];
+  products: ProductGenericProps[];
   pagination: IPaginationProps;
 };
 const ProductGallery = (props: IProductGalleryProps) => (

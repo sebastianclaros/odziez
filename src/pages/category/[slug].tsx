@@ -1,11 +1,16 @@
 import React from 'react';
-import { GetStaticPaths } from 'next';
+import { GetStaticPaths , GetStaticProps} from 'next';
 
 import { Content } from '../../content/Content';
 import { Meta } from '../../layout/Meta';
 import { Main } from '../../templates/Main';
-import { IProductProps, getAllProducts, getProductsByCategory } from '../../utils/Content';
+import { ProductGenericProps, getAllProducts, getProductsByCategory } from '../../utils/Content';
 import { ProductSection } from '../../product/ProductSection';
+import { ParsedUrlQuery } from 'querystring';
+
+interface IParams extends ParsedUrlQuery {
+  slug: string
+}
 
 type IProductUrl = {
   slug: string;
@@ -13,7 +18,7 @@ type IProductUrl = {
 
 export type ICategoryProps = {
   category: string;
-  products: IProductProps[];
+  products: ProductGenericProps[];
 };
 
 const DisplayCategory = (props: ICategoryProps) => (
@@ -47,23 +52,23 @@ export const getStaticPaths: GetStaticPaths<IProductUrl> = async () => {
     fallback: false,
   };
 };
-
-export const getStaticProps: GetStaticProps<IProductProps, IProductUrl> = async ({
-  params,
-}) => {
-  const products = getProductsByCategory(params!.slug, [
-    'title',
+ 
+export const getStaticProps: GetStaticProps = async (context: any) => {
+  const { slug } = context.params as IParams // no longer causes error
+ const products = getProductsByCategory(slug, [
+    'name',
     'description',
     'category',
-    'precio',
+    'price',
     'image',
+    'href',
     'content',
     'slug',
   ]);
 
   return {
     props: {
-      category: params!.slug,
+      category: slug,
       products,
     },
   };

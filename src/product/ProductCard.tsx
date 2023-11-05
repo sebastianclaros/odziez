@@ -1,44 +1,31 @@
 import * as React from 'react';
-import {Card,CardContent,  CardActions,CardMedia,Button , Typography} from '@mui/material';
-import { IProductProps } from '../pages/products/[slug]';
-import { CardActionArea } from '@mui/material';
+import { ProductGenericProps } from '../utils/Content';
 
-type IProductCard = {
-  product: IProductProps;
+type ProductCard = {
+  product: ProductGenericProps;
 };
 
-const ProductCard = (props: IProductCard) =>  (
-    <>
-      <Card sx={{ maxWidth: 345 }}>
-        <CardActionArea href={ '/products/' + props.product.slug}>
-          <CardMedia
-            component="img"
-            height="140"
-            image={props.product.image}
-            title={props.product.title}
+const ProductCard = (props: ProductCard) =>  (
+    <div key={props.product.slug} className="group relative">
+      <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+        <img
+          src={props.product.image}
+          alt={props.product.name}
+          className="h-full w-full object-cover object-center lg:h-full lg:w-full"
         />
-        {props.product.description &&
-            <CardContent className='no-decoration'>
-              <Typography gutterBottom variant="h5" component="div">
-              {props.product.title}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {props.product.description}
-              </Typography>
-            </CardContent>
-        }
-        </CardActionArea>
-        <CardActions>
-          <Button size="small" color="primary">
-            Agergar al Carrito
-          </Button>
-          <Button size="small" color="primary">
-            Compartir
-          </Button>
-        </CardActions>
-      </Card>
-
-    </>
+      </div>
+      <div className="mt-4 flex justify-between">
+        <div>
+          <h3 className="text-sm text-gray-700">
+            <a href={props.product.href}>
+              <span aria-hidden="true" className="absolute inset-0" />
+              {props.product.name}
+            </a>
+          </h3>
+        </div>
+        <p className="text-sm font-medium text-gray-900">{props.product.price}</p>
+      </div>
+    </div>
 )
 
 export { ProductCard };
