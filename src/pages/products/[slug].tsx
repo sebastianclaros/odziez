@@ -29,6 +29,7 @@ type IProductUrl = {
 };
 
 function agregarCarrito(producto: IProductProps ) {
+  console.log(producto);
   LocalCart.addItemToLocalCart(producto.slug, new CartItem( producto.name, producto.description, Number.parseInt(producto.price) ) );
 }
 
@@ -129,6 +130,7 @@ export const getStaticProps = async (context: any) => {
 
   return {
     props: {
+      slug: product.slug,
       name: product.name,
       description: product.description,
       category: product.category,

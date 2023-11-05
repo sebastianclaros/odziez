@@ -18,6 +18,9 @@ export class LocalCart {
 
     static getLocalCartItems(): Map<string, CartItem> {
         let cartMap = new Map()
+        if (typeof window === 'undefined') {
+            return cartMap;
+        }
         const cart = localStorage.getItem(LocalCart.key)
         if (cart === null || cart.length === 0) {
             return cartMap

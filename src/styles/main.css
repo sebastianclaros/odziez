@@ -8,9 +8,5 @@ a:hover {
   @apply underline;
 }
 
-.no-decoration {
-  text-decoration: none;
-}
 @tailwind components;
-
 @tailwind utilities;

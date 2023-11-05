@@ -3,7 +3,12 @@ import React from 'react';
 import { Content } from '../content/Content';
 import { Meta } from '../layout/Meta';
 import { Main } from '../templates/Main';
-import { LocalCart } from '../utils/LocalCart';
+import { LocalCart, CartItem } from '../utils/LocalCart';
+
+
+export interface ICarritoProps  {
+  items: CartItem[];
+};
 
 function comprar() {
   const telefono = '+5491124058894';
@@ -28,22 +33,22 @@ function textFromCart(){
   return texto;
 }
 
-// const productos = LocalCart.getLocalCartItems
-
-
-const Carrito = () => (
+const Carrito = (props: ICarritoProps) => (
   <Main meta={<Meta title="Carrito" description="Carrito" />}>
     <Content>
       <div>
         <div>
-          <h2>Carrito</h2>
-          <div className="cart-wrapper">
+          <h2>Carrito</h2>          
+          <div>
+          {props.items.map((product) => (
+            <div>{product.name}</div>        
+            ))}
           </div>
 
           <button onClick={comprar}
                 type="submit"
                 className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-          >
+                >
             Comprar
           </button>
         </div>
@@ -51,5 +56,15 @@ const Carrito = () => (
     </Content>
   </Main>
 );
+
+export const getStaticProps = async () => {
+  const items = Array.from(LocalCart.getLocalCartItems().values());
+  
+  return {
+    props: {
+      items
+    },
+  };
+};
 
 export default Carrito;
