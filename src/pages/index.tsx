@@ -7,6 +7,7 @@ import { Meta } from '../layout/Meta';
 import { Main } from '../templates/Main';
 import { AppConfig } from '../utils/AppConfig';
 import { ProductGenericProps, getProductsByTag } from '../utils/Content';
+import { ProductBanner } from '../components/ProductBanner';
 
 type IHomeProps = {
   home: ProductGenericProps[];
@@ -22,8 +23,10 @@ const Index = (props: IHomeProps) => (
       />
     }
   >
-    <ProductSection products={props.home} />
-    <ProductSection products={props.featured} />
+    <h2>Home</h2>
+    <ProductBanner products={props.home} />
+    <h2>Destacados</h2>
+    <ProductBanner products={props.featured} />
   </Main>
 );
 
