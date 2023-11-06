@@ -9,7 +9,7 @@ type IMainProps = {
   meta: ReactNode;
   children: ReactNode;
 };
-
+const categories = AppConfig.categories;
 const Main = (props: IMainProps) => (
   <div className="antialiased w-full text-gray-700 px-3 md:px-0">
     {props.meta}
@@ -25,24 +25,15 @@ const Main = (props: IMainProps) => (
         <div>
           <Navbar>
             <li className="mr-6">
-              <Link href="/">
-                <a>Home</a>
-              </Link>
+              <Link href="/">Home</Link>
             </li>
+            {categories.map(category=>(
+              <li className="mr-6">
+                <Link href={'/category/' + category}>{category}</Link>
+              </li>
+            ))}
             <li className="mr-6">
-              <Link href="/category/deportivo">
-                <a>Deportivo</a>
-              </Link>
-            </li>
-            <li className="mr-6">
-              <Link href="/category/futurista">
-                <a>Futurista</a>
-              </Link>
-            </li>
-            <li className="mr-6">
-              <Link prefetch={false} href="/carrito/" >
-                <a>Carrito</a>
-              </Link>
+              <Link href="/carrito/" >Carrito</Link>
             </li>
           </Navbar>
         </div>

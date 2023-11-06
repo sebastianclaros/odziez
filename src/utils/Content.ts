@@ -63,6 +63,10 @@ export function getProductBySlug(slug: string, fields: string[] = []) {
   });
   return items;
 }
+export function getAllCategories() {
+  const products = getAllProducts(['category']).map(p => p.category);
+  return Array.from(new Set(products));  
+}
 
 export function getAllProducts(fields: string[] = []) {
   const slugs = getProductSlugs();

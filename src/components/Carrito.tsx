@@ -1,5 +1,6 @@
 import React from 'react';
 import { LocalCart, CartItem } from '../utils/LocalCart';
+import { AppConfig } from '../utils/AppConfig';
 
 interface ICarritoProps {
     items: CartItem[];
@@ -37,7 +38,7 @@ const Carrito = (props: ICarritoProps) => (
                         <h3>
                             <a href={'/products/' + product.id}>{product.name}</a>
                         </h3>
-                        <p className="ml-4">{product.price}</p>
+                        <p className="ml-4">$ {product.price.toLocaleString(AppConfig.locale)}</p>
                         </div>
                         <p className="mt-1 text-sm text-gray-500"></p>
                     </div>
@@ -58,7 +59,7 @@ const Carrito = (props: ICarritoProps) => (
         <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
             <div className="flex justify-between text-base font-medium text-gray-900">
             <p>Subtotal</p>
-            <p>{props.subtotal}</p>
+            <p>$ {props.subtotal.toLocaleString(AppConfig.locale)}</p>
             </div>
             <div className="mt-6">
             <button onClick={()=>comprar(props.texto)}

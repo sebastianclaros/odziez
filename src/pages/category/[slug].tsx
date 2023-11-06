@@ -4,7 +4,7 @@ import { GetStaticPaths , GetStaticProps} from 'next';
 import { Content } from '../../components/Content';
 import { Meta } from '../../layout/Meta';
 import { Main } from '../../templates/Main';
-import { ProductGenericProps, getAllProducts, getProductsByCategory } from '../../utils/Content';
+import { ProductGenericProps, getAllCategories, getProductsByCategory } from '../../utils/Content';
 import { ProductSection } from '../../components/ProductSection';
 import { ParsedUrlQuery } from 'querystring';
 
@@ -40,8 +40,7 @@ const DisplayCategory = (props: ICategoryProps) => (
 );
 
 export const getStaticPaths: GetStaticPaths<IProductUrl> = async () => {
-  const products = getAllProducts(['category']).map(p => p.category);
-  const categories = Array.from(new Set(products));
+  const categories = getAllCategories();
 
   return {
     paths: categories.map((category) => ({
