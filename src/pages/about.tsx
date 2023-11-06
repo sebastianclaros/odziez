@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Content } from '../content/Content';
+import { Content } from '../components/Content';
 import { Meta } from '../layout/Meta';
 import { Main } from '../templates/Main';
 

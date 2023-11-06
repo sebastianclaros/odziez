@@ -1,11 +1,11 @@
 import React from 'react';
 import { GetStaticPaths , GetStaticProps} from 'next';
 
-import { Content } from '../../content/Content';
+import { Content } from '../../components/Content';
 import { Meta } from '../../layout/Meta';
 import { Main } from '../../templates/Main';
 import { ProductGenericProps, getAllProducts, getProductsByCategory } from '../../utils/Content';
-import { ProductSection } from '../../product/ProductSection';
+import { ProductSection } from '../../components/ProductSection';
 import { ParsedUrlQuery } from 'querystring';
 
 interface IParams extends ParsedUrlQuery {
@@ -30,7 +30,7 @@ const DisplayCategory = (props: ICategoryProps) => (
       />
     }
   >
-    <h1 className="text-center font-bold text-3xl text-gray-900">
+    <h1>
       {props.category.toLocaleUpperCase()}
     </h1>
     <Content>

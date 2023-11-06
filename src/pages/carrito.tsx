@@ -1,70 +1,39 @@
 import React from 'react';
 
-import { Content } from '../content/Content';
+import { Content } from '../components/Content';
 import { Meta } from '../layout/Meta';
 import { Main } from '../templates/Main';
-import { LocalCart, CartItem } from '../utils/LocalCart';
+import Carrito from '../components/Carrito';
+import { CartItem, LocalCart } from '../utils/LocalCart';
 
-
-export interface ICarritoProps  {
-  items: CartItem[];
-};
-
-function comprar() {
-  const telefono = '+5491124058894';
-  const mensaje = textFromCart();
-
-  window.location.href = "https://api.whatsapp.com/send/?phone="+ telefono+ "&text=" + mensaje + "&type=phone_number";    
-}
-
-function textFromCart(){ 
-  const items = LocalCart.getLocalCartItems()
-  if(items === null) return
+function textFromCart(items: CartItem[]){ 
+  let subtotal = 0;
   let texto = '';
-  let total = 0
-  for(const product of Array.from(items.values())){
+  if(items === null) {
+    return {subtotal: 0};
+  }
+  for(const product of items){
       let price = product.price * product.quantity
       price = Math.round(price*100)/100
-      total += price
-      total = Math.round(total*100)/100
+      subtotal += price
+      subtotal = Math.round(subtotal*100)/100
       texto +=`- ${product.name}: ${product.quantity} x $ ${product.price} = $ ${price}`
   }
-  texto += `total: $ ${total}`
-  return texto;
+  texto += `total: $ ${subtotal}`
+  return {subtotal, texto};
 }
 
-const Carrito = (props: ICarritoProps) => (
+
+const items = Array.from(LocalCart.getLocalCartItems().values());
+const txtCart = textFromCart(items);
+
+const CarritoPage = () => (
   <Main meta={<Meta title="Carrito" description="Carrito" />}>
     <Content>
-      <div>
-        <div>
-          <h2>Carrito</h2>          
-          <div>
-          {props.items.map((product) => (
-            <div>{product.name}</div>        
-            ))}
-          </div>
-
-          <button onClick={comprar}
-                type="submit"
-                className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                >
-            Comprar
-          </button>
-        </div>
-      </div>
+      <h1>Carrito</h1>
+      <Carrito items={items} subtotal={txtCart.subtotal} texto={txtCart.texto}></Carrito>
     </Content>
   </Main>
-);
+  );
 
-export const getStaticProps = async () => {
-  const items = Array.from(LocalCart.getLocalCartItems().values());
-  
-  return {
-    props: {
-      items
-    },
-  };
-};
-
-export default Carrito;
+export default CarritoPage;

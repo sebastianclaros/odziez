@@ -2,9 +2,9 @@ import React from 'react';
 
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { ProductGallery, IProductGalleryProps } from '../product/ProductGallery';
+import { ProductGallery, IProductGalleryProps } from '../components/ProductGallery';
 import { Meta } from '../layout/Meta';
-import { IPaginationProps } from '../pagination/Pagination';
+import { IPaginationProps } from '../components/Pagination';
 import { Main } from '../templates/Main';
 import { AppConfig } from '../utils/AppConfig';
 import { getAllProducts } from '../utils/Content';

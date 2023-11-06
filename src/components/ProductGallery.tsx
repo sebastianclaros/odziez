@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pagination, IPaginationProps } from '../pagination/Pagination';
+import { Pagination, IPaginationProps } from './Pagination';
 import {ProductCard} from './ProductCard';
 import { ProductGenericProps } from '../utils/Content';
 

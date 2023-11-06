@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 
 import Link from 'next/link';
 
-import { Navbar } from '../navigation/Navbar';
+import { Navbar } from '../components/Navbar';
 import { AppConfig } from '../utils/AppConfig';
 
 type IMainProps = {
@@ -40,7 +40,7 @@ const Main = (props: IMainProps) => (
               </Link>
             </li>
             <li className="mr-6">
-              <Link href="/carrito/">
+              <Link prefetch={false} href="/carrito/" >
                 <a>Carrito</a>
               </Link>
             </li>

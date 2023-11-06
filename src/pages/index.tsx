@@ -2,7 +2,7 @@ import React from 'react';
 
 import { GetStaticProps } from 'next';
 
-import { ProductSection } from '../product/ProductSection';
+import { ProductSection } from '../components/ProductSection';
 import { Meta } from '../layout/Meta';
 import { Main } from '../templates/Main';
 import { AppConfig } from '../utils/AppConfig';

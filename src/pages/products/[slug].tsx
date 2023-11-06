@@ -1,7 +1,7 @@
 import React from 'react';
 import { GetStaticPaths } from 'next';
 
-import { Content } from '../../content/Content';
+import { Content } from '../../components/Content';
 import { Meta } from '../../layout/Meta';
 import { Main } from '../../templates/Main';
 import { getAllProducts, getProductBySlug } from '../../utils/Content';
@@ -29,8 +29,7 @@ type IProductUrl = {
 };
 
 function agregarCarrito(producto: IProductProps ) {
-  console.log(producto);
-  LocalCart.addItemToLocalCart(producto.slug, new CartItem( producto.name, producto.description, Number.parseInt(producto.price) ) );
+  LocalCart.addItemToLocalCart(producto.slug, new CartItem( producto.name, producto.description, Number.parseInt(producto.price), producto.image ) );
 }
 
 const DisplayProduct = (props: IProductProps) => (
