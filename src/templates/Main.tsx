@@ -28,12 +28,12 @@ const Main = (props: IMainProps) => (
               <Link href="/">Home</Link>
             </li>
             {categories.map(category=>(
-              <li className="mr-6">
-                <Link href={'/category/' + category}>{category}</Link>
+              <li key={category} className="mr-6">
+                <Link href={'/category/' + category.toLowerCase()}>{category}</Link>
               </li>
             ))}
             <li className="mr-6">
-              <Link href="/carrito/" >Carrito</Link>
+              <Link prefetch={false} href="/carrito/" >Carrito</Link>
             </li>
           </Navbar>
         </div>

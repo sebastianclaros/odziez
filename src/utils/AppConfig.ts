@@ -4,7 +4,8 @@ export const AppConfig = {
   description: 'Tienda Odziez',
   url: 'https://www.odziez.ar',
   locale: 'es',
-  categories: ['Deportista', 'Futurista'],
+  categories: ['Deportivo', 'Futurista'],
   author: 'Colegio Labarden',
+  whatsapp: '+5491124058894',
   pagination_size: 5,
 };

@@ -33,6 +33,7 @@ function agregarCarrito(producto: IProductProps ) {
   LocalCart.addItemToLocalCart(producto.slug, new CartItem( producto.name, producto.description, Number.parseInt(producto.price), producto.image ) );
 }
 
+
 const DisplayProduct = (props: IProductProps) => (
   <Main
     meta={
@@ -65,7 +66,15 @@ const DisplayProduct = (props: IProductProps) => (
           {/* Options */}
           <div className="mt-4 lg:row-span-3 lg:mt-0">
             <h2 className="sr-only">Informacion</h2>
-            <p className="text-3xl tracking-tight text-gray-900">$ {Number(props.price).toLocaleString(AppConfig.locale)}</p>
+            <p className="text-3xl text-center tracking-tight text-gray-900">$ {Number(props.price).toLocaleString(AppConfig.locale)}</p>
+
+            <button onClick={()=>agregarCarrito(props)}
+                type="submit"
+                className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              >
+                Agregar al Carrito
+            </button>
+
           </div>
 
           <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
@@ -77,22 +86,18 @@ const DisplayProduct = (props: IProductProps) => (
                 <p className="text-base text-gray-900">{props.description}</p>
               </div>
             </div>
-            <button onClick={()=>agregarCarrito(props)}
-                type="submit"
-                className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              >
-                Agregar al Carrito
-            </button>
-            <div className="mt-10">
-              <h2 className="text-sm font-medium text-gray-900">Detalles</h2>
+            { props.content && (
+              <div className="mt-10">
+                <h2 className="text-sm font-medium text-gray-900">Detalles</h2>
 
-              <div className="mt-4 space-y-6">
-                <div className="text-sm text-gray-600"
-                    // eslint-disable-next-line react/no-danger
-                    dangerouslySetInnerHTML={{ __html: props.content }}
-                    />
+                <div className="mt-4 space-y-6">
+                  <div className="text-sm text-gray-600"
+                      // eslint-disable-next-line react/no-danger
+                      dangerouslySetInnerHTML={{ __html: props.content }}
+                      />
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
