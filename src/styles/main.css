@@ -8,5 +8,8 @@ a:hover {
   @apply underline;
 }
 
+.bg-color {
+  background-color: var(--color);
+}
 @tailwind components;
 @tailwind utilities;
