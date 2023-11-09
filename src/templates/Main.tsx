@@ -2,7 +2,6 @@ import React, { ReactNode } from 'react';
 import Link from 'next/link';
 import { Navbar } from '../components/Navbar';
 import { AppConfig } from '../utils/AppConfig';
-import { Footer } from './Footer';
 //import { LocalCart } from '../utils/LocalCart';
 
 type IMainProps = {
@@ -52,7 +51,6 @@ const Main = (props: IMainProps) => (
 
       <div className="border-t border-gray-300 text-center py-8 text-sm"></div>
     </div>
-    <Footer></Footer>
   </div>
 );
 
