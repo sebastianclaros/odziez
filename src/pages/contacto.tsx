@@ -1,26 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Content } from '../components/Content';
 import { Meta } from '../layout/Meta';
 import { Main } from '../templates/Main';
+import { Input } from '../components/input';
+import { TextArea } from '../components/textArea';
 
-const Contacto = () => (
+
+
+const Contacto = () => {
+  const [nombre,setNombre] = useState<string>();
+  const [email,setEmail] = useState<string>();
+  const [mensaje,setMensaje] = useState<string>();
+
+  return (
   <Main meta={<Meta title="Lorem ipsum" description="Lorem ipsum" />}>
     <Content>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione fuga
-        recusandae quidem. Quaerat molestiae blanditiis doloremque possimus
-        labore voluptatibus distinctio recusandae autem esse explicabo molestias
-        officia placeat, accusamus aut saepe.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione fuga
-        recusandae quidem. Quaerat molestiae blanditiis doloremque possimus
-        labore voluptatibus distinctio recusandae autem esse explicabo molestias
-        officia placeat, accusamus aut saepe.
-      </p>
+      <Input label="Nombre" name="nombre" setValue={setNombre}></Input>
+      <Input label="Email o Telefono" name="email" setValue={setEmail}></Input>
+      <TextArea label="Mensaje" name="mensaje" setValue={setMensaje}></TextArea>
+      <button>Enviar</button>
     </Content>
   </Main>
-);
+)};
 
 export default Contacto;

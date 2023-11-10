@@ -33,8 +33,7 @@ function MapComponent({center,zoom}: {
     if (status === Status.FAILURE) return <h3>{status} ...</h3>;
     return <></>;
   };
-  
-    
+      
 const Mapa = ( props: IMapaProps) => (
     <Wrapper apiKey={AppConfig.mapKey} render={render}>
       <MapComponent zoom={props.zoom} center={{lat: props.lat, lng: props.lng }}/>

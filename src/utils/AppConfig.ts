@@ -1,3 +1,4 @@
+
 export const AppConfig = {
   site_name: 'Starter',
   title: 'Odziez',
@@ -8,5 +9,5 @@ export const AppConfig = {
   author: 'Colegio Labarden',
   whatsapp: '+5491124058894',
   pagination_size: 5,
-  mapKey: 'AIzaSyDNGQPs0vdBYFCTsqeLE-Yw3B2cgEmAQLY'
+  mapKey: process.env.MAP_KEY
 };

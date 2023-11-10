@@ -4,6 +4,7 @@ import { Content } from '../components/Content';
 import { Meta } from '../layout/Meta';
 import { Main } from '../templates/Main';
 import { Mapa } from '../components/Mapa';
+import { AppConfig } from '../utils/AppConfig';
 
 interface ISucursalProps {
   nombre: string;
