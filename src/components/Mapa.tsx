@@ -35,9 +35,13 @@ function MapComponent({center,zoom}: {
   };
       
 const Mapa = ( props: IMapaProps) => (
-    <Wrapper apiKey={AppConfig.mapKey} render={render}>
-      <MapComponent zoom={props.zoom} center={{lat: props.lat, lng: props.lng }}/>
-    </Wrapper>
+    <>
+    { AppConfig.mapKey && (
+      <Wrapper apiKey={AppConfig.mapKey} render={render}>
+        <MapComponent zoom={props.zoom} center={{lat: props.lat, lng: props.lng }}/>
+      </Wrapper>
+    )}
+    </>
 )
 
  export {Mapa};

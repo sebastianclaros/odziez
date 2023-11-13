@@ -1,3 +1,4 @@
+require('dotenv').config();
 
 export const AppConfig = {
   site_name: 'Starter',
