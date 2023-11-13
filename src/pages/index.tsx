@@ -21,10 +21,7 @@ const Index = (props: IHomeProps) => (
       />
     }
   >
-    <h2>Home</h2>
     <ProductBanner products={props.home} />
-    <h2>Destacados</h2>
-    <ProductBanner products={props.featured} />
   </Main>
 );
 

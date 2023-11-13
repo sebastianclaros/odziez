@@ -1,10 +1,10 @@
 ---
 name: Pantalones Babucha
 description: Lo último en tecnología deportiva.
-category: Deportiva
+category: Deportivo
 price: 14187
 slug: pantalones-babucha
-tags: [home]
+tags: [featured]
 sizes: [38,40,42,44,46]
 image: /assets/images/products/pantalon-babucha1.jpg
 ---

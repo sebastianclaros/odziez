@@ -4,6 +4,6 @@ description: No importa que hora sea, este reloj te marca el momento ideal para 
 category: Futurista
 price: 31000
 slug: reloj
-tags: [home]
+tags: [featured]
 image: /assets/images/products/reloj1.png
 ---

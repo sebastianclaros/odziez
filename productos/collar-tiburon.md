@@ -4,6 +4,6 @@ description: Este producto te permite ver la realidad de otro modo y que te vean
 category: Moderno
 price: 12000
 slug: collar-tiburon
-tags: [home]
+tags: [featured]
 image: /assets/images/products/collar-tiburon1.jpg
 ---
