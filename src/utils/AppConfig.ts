@@ -9,5 +9,5 @@ export const AppConfig = {
   author: 'Colegio Labarden',
   whatsapp: '+5491124058894',
   pagination_size: 5,
-  mapKey: process.env.MAP_KEY
+  mapKey: process.env.MAP_KEY || 'AIzaSyD7v69NEBAwNa3m-f6d-ASY47uCap65h1c'
 };

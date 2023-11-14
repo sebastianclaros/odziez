@@ -33,18 +33,14 @@ type IProductUrl = {
   slug: string;
 };
 
-function agregarCarrito(producto: IProductProps, color: string, size: string, redirectCarrito: () => void ) {
+function agregarCarrito(producto: IProductProps, color: string, size: string) {
   LocalCart.addItemToLocalCart(new CartItem( producto.slug, producto.name, producto.description, Number.parseInt(producto.price), producto.image, color, size, 1) );
-  redirectCarrito();
+  window.location.href = "/carrito";      
 }
 
 const DisplayProduct = (props: IProductProps) => {
   const [selectedColor, setColor] = useState(props.colors ? props.colors[0]: '' );
   const [selectedSize, setSize] = useState(props.sizes ? props.sizes[0]: '');
-
-
-  const redirectCarrito = ()=> {
-  } 
 
   return (
     <Main
@@ -91,7 +87,7 @@ const DisplayProduct = (props: IProductProps) => {
                   <SizeSelector selectedSize={selectedSize} setSize={setSize} sizes={props.sizes} ></SizeSelector>
                 </>
               )}
-              <button onClick={()=>agregarCarrito(props, selectedColor, selectedSize, redirectCarrito)}
+              <button onClick={()=>agregarCarrito(props, selectedColor, selectedSize)}
                   type="submit"
                   className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
