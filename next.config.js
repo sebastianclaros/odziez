@@ -13,7 +13,8 @@ module.exports = withBundleAnalyzer({
   basePath: baseUrl,
   env: {
     baseUrl,
-    MAPKEY: process.env.MAPKEY,
+    MAP_KEY: process.env.MAP_KEY,
+    NEXT_PUBLIC_GOOGLE_ANALYTICS: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS,
   },
   // The starter code load resources from `public` folder with `router.basePath` in React components.
   // So, the source code is "basePath-ready".

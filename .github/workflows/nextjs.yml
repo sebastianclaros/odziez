@@ -73,8 +73,10 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - name: Set MAPKEY
-        run: export MAPKEY=$GITHUB_MAPKEY
+      - name: Set MAP_KEY
+        run: export MAP_KEY=$GITHUB_MAP_KEY
+      - name: Set NEXT_PUBLIC_GOOGLE_ANALYTICS
+        run: export NEXT_PUBLIC_GOOGLE_ANALYTICS=$GITHUB_NEXT_PUBLIC_GOOGLE_ANALYTICS
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Static HTML export with Next.js

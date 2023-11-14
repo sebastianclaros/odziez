@@ -44,6 +44,7 @@ const Sucursal = (props: ISucursalProps) => (
         </Disclosure>
       </div>
       <div>
+          <img src={ '/assets/images/' + props.nombre + '.png'}></img> 
           <Mapa zoom={15} lat={props.lat} lng={props.lng} nombre={props.nombre} direccion={props.direccion}></Mapa>
       </div>
     </div>
