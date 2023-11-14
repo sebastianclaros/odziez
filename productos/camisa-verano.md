@@ -1,5 +1,5 @@
 ---
-name: Camisas de verano
+name: Camisa de verano
 description: Esta prenda es una excelente campera.
 category: Moderno
 price: 11000

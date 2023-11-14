@@ -1,9 +1,9 @@
 ---
-name: Pantalones Gabardina
+name: Pantalon Gabardina
 description: Lo último en tecnología deportiva.
 category: Retro
 price: 14187
-slug: pantalones-gabardina
+slug: pantalon-gabardina
 tags: [home]
 sizes: [38,40,42,44,46]
 image: /assets/images/products/pantalon-gabardina1.jpg

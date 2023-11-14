@@ -1,6 +1,6 @@
 ---
 name: Zapatillas Nike
-description: 
+description: Si queres sentirte como un autentico McFly y volver al futuro 
 category: Futurista
 price: 16500
 slug: zapatillas-nike
